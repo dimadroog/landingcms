@@ -1,0 +1,204 @@
+.ml5{
+    margin-left: 5px;
+}
+.dn{
+    display: none;
+}
+.fr{
+    float: right;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.red{
+    border: 1px solid #f00;
+}
+.cp{
+    cursor: pointer;
+}
+.responsive{
+    position: responsive;
+}
+.relative{
+    position:relative;
+}
+
+/*///////////////////////////////////////*/
+   
+body, h1, h2, h3, h4, h5, h6{
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width:768px) {    
+    body, h1, h2, h3, h4, h5, h6{
+        /*font-family: 'Roboto', sans-serif;*/
+        line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    body{
+        font-size: 18px;
+    }
+    h1{
+        font-size: 50px;
+    }
+    h2{
+        font-size: 40px;
+    }
+    h3{
+        font-size: 30px;
+    }
+    h4{
+        font-size: 18px;
+    }
+    h5{
+        font-size: 16px;
+    }
+
+    h6{
+        font-size: 14px;
+    }
+}
+
+
+/*scrolltop*/
+.scrollup{
+width:40px;
+height:40px;
+opacity:0.3;
+position:fixed;
+bottom:50px;
+right:100px;
+display:none;
+text-indent:-9999px;
+background: url(../img/icon_top.png)  no-repeat;
+z-index:1111;
+}
+
+.scrollup:hover{
+opacity:0.6;
+}
+
+/*socialshare*/
+
+.social-icon-container{
+    height: 60px;
+}
+
+.b-share-icon_gplus, .b-share-icon_vkontakte, .b-share-icon_facebook, .b-share-icon_twitter, .b-share-icon_odnoklassniki, .b-share-icon_moimir {
+    width: 45px !important;
+    height:45px !important;
+    margin:3px;
+}
+.b-share-icon_gplus:hover, .b-share-icon_vkontakte:hover, .b-share-icon_facebook:hover, .b-share-icon_twitter:hover, .b-share-icon_odnoklassniki:hover, .b-share-icon_moimir:hover{
+    opacity: 0.8;
+}
+
+.b-share-icon_gplus{
+    background: url(../img/share/go.png) no-repeat !important;
+    background-size: contain !important;
+}
+
+.b-share-icon_vkontakte{
+    background: url(../img/share/vk.png) no-repeat !important;
+    background-size: contain !important;
+}
+
+.b-share-icon_facebook{
+    background: url(../img/share/fb.png) no-repeat !important;
+    background-size: contain !important;
+}
+
+.b-share-icon_twitter{
+    background: url(../img/share/tw.png) no-repeat !important;
+    background-size: contain !important;
+}
+
+
+.b-share-icon_odnoklassniki{
+    background: url(../img/share/ok.png) no-repeat !important;
+    background-size: contain !important;
+}
+
+.b-share-icon_moimir{
+    background: url(../img/share/mr.png) no-repeat !important;
+    background-size: contain !important;
+}
+
+/*
+.container-fluid {
+    border-bottom: 1px solid #DDD;
+}
+*/
+footer{
+    padding: 50px;
+}
+
+.form-group{
+    margin-bottom: 30px;
+}
+
+.image-admin-prev{
+    height: 100px;
+}
+
+.item{
+    /*background: #F5F5F9;
+    border: 1px solid #E2E2E2;
+    margin: 33px 0;
+    padding: 25px 25px 15px 25px;*/
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+
+@media (min-width:768px) {    
+    .block-content{
+        padding-top: 50px; 
+        padding-bottom: 50px; 
+    }
+}
+
+@media (max-width:768px) {    
+    .block-content{
+        padding: 15px; 
+    }
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: transparent;
+    opacity: .8;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    background-color: transparent;
+    opacity: .8;
+}
+
+
+/*colorpicker-2x*/
+.colorpicker-2x .colorpicker-saturation {
+    width: 200px;
+    height: 200px;
+}
+
+.colorpicker-2x .colorpicker-hue,
+.colorpicker-2x .colorpicker-alpha {
+    width: 30px;
+    height: 200px;
+}
+
+.colorpicker-2x .colorpicker-color,
+.colorpicker-2x .colorpicker-color div {
+    height: 30px;
+}
+#colorpicker > span > i > span{
+    font-size: 80%;
+}
