@@ -29,6 +29,13 @@
                     <?php if ($block->alias == 'plain'): ?>
                         <a class="btn btn-xs btn-danger" onclick="ItemDelete(this, '<?php echo get_class($block); ?>', <?php echo $block->id; ?>, '<?php echo Yii::app()->createUrl('/block/itemdelete/'); ?>')">Удалить</a>
                     <?php endif; ?>
+
+                    <!-- book or contact csv  -->
+                    <?php if ($block->alias == 'book' || $block->alias == 'contact' ): ?>
+                        <a class="btn btn-xs btn-success" href="<?php echo Yii::app()->request->baseUrl; ?>/images/contacts.csv" target="_blank">contacts.csv</a>
+                    <?php endif; ?>
+
+                    
                 </div>
             </div>
         </div>

@@ -17,7 +17,6 @@ textarea.form-control{
     height: 150px;
 }
 #contact_success{
-    background: #fff;
     padding: 20px;
     margin: 20px 0;
 }
@@ -34,14 +33,19 @@ textarea.form-control{
 .form-control:-ms-input-placeholder {
     text-transform: uppercase;
 }
+.nm{
+text-transform: capitalize;
+}
 </style>
 
 <?php echo $item->content; ?>
 
 
-<div id="contact_success" class="dn text-center">
-    <h2><span class="nm"></span>Спасибо за Ваше обращение!</h2>
-    <p class="text-muted"><i>Мы свяжемся с Вами как можно скорее.</i></p>
+<div id="contact_success" class="dn text-center panel panel-success">
+    <div class="panel-body">
+        <h2><span class="nm"></span>Спасибо за Ваше обращение!</h2>
+        <p class="text-muted"><i>Мы свяжемся с Вами как можно скорее.</i></p>
+    </div>
 </div>
 
 <?php // if ($contacts->mail):?>
