@@ -33,11 +33,12 @@ class Block extends CActiveRecord
 		$image = ($block->background)?Yii::app()->request->baseUrl.'/images/bg_blocks/'.$block->background:'';
 		
 		$bg_image = 'background-image: url('.$image.'); '; 
-		$padding_top = (Setting::getData('navbar_position') == 'navbar-fixed-top' && $key == 0)?'padding-top: 90px; ':'';
+		// $padding_top = (Setting::getData('navbar_position') == 'navbar-fixed-top' && $key == 0)?'padding-top: 90px; ':'';
 		$bg_style = $block->bg_style;
 		$bg_color = ($block->bg_color)?'background-color:'.$block->bg_color.'; ':'';
 
-		$result = $bg_image.$padding_top.$bg_style.$bg_color;
+		// $result = $bg_image.$padding_top.$bg_style.$bg_color;
+		$result = $bg_image.$bg_style.$bg_color;
 		return $result;
 	}
 	
@@ -113,17 +114,6 @@ class Block extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'alias' => 'Alias',
-			'name' => 'Name',
-			'content' => 'Content',
-			'publish' => 'Publish',
-			'publish_menu' => 'Publish Menu',
-			'background' => 'Background',
-			'weight' => 'Weight',
-			'bg_style' => 'bg_style',
-			'bg_color' => 'bg_color',
-			'animate' => 'animate',
 		);
 	}
 

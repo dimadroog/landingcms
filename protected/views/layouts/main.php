@@ -38,8 +38,6 @@
 
 		<?php echo $content; ?>
 
-
-
  </body>
 	    <!-- Bootstrap Core JavaScript -->
 	    <script src="<?php echo Yii::app()->request->baseUrl; ?>/static/bootstrap/js/bootstrap.min.js"></script>
@@ -49,14 +47,10 @@
         <script type="text/javascript">
 		    jQuery( window ).load(function() { //it must be before all document.ready functions
 			    if (jQuery("textarea").is("[name='wysiwyg']")) {
-			        CKEDITOR.replace('wysiwyg',{
-			            'filebrowserBrowseUrl':'<?php echo Yii::app()->request->baseUrl; ?>/static/wysiwyg/kcfinder/browse.php?type=files',
-			            'filebrowserImageBrowseUrl':'<?php echo Yii::app()->request->baseUrl; ?>/static/wysiwyg/kcfinder/browse.php?type=images',
-			            'filebrowserFlashBrowseUrl':'<?php echo Yii::app()->request->baseUrl; ?>/static/wysiwyg/kcfinder/browse.php?type=flash',
-			            'filebrowserUploadUrl':'<?php echo Yii::app()->request->baseUrl; ?>/static/wysiwyg/kcfinder/upload.php?type=files',
-			            'filebrowserImageUploadUrl':'<?php echo Yii::app()->request->baseUrl; ?>/static/wysiwyg/kcfinder/upload.php?type=images',
-			            'filebrowserFlashUploadUrl':'<?php echo Yii::app()->request->baseUrl; ?>/static/wysiwyg/kcfinder/upload.php?type=flash'
-			        });
+                    CKEDITOR.replace('wysiwyg',{
+                        filebrowserBrowseUrl : '<?php echo Yii::app()->request->baseUrl; ?>/static/wysiwyg/responsive_filemanager/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+                        filebrowserImageBrowseUrl : '<?php echo Yii::app()->request->baseUrl; ?>/static/wysiwyg/responsive_filemanager/filemanager/dialog.php?type=1&editor=ckeditor&fldr='
+                    });
 			    }
 			});
         </script>

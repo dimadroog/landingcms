@@ -13,6 +13,7 @@
  * @property integer $navbar_position
  * @property integer $navbar_theme
  * @property integer $password
+ * @property integer $super_password
  * @property integer $email
  */
 class Setting extends CActiveRecord
@@ -21,10 +22,6 @@ class Setting extends CActiveRecord
 		$setting = Setting::model()->findByPk(1);
 		return $setting->$param;
 	}
-	// public static function getPass(){
-	// 	$setting = Setting::model()->findByPk(1);
-	// 	return $setting->password;
-	// }
 	/**
 	 * @return string the associated database table name
 	 */
@@ -42,10 +39,10 @@ class Setting extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			// array('sitename, seo_title, seo_description, seo_keywords', 'required'),
-			array('sitename, seo_title, bootstrap_theme, navbar_position, navbar_theme, password, email', 'length', 'max'=>255),
+			array('sitename, seo_title, bootstrap_theme, navbar_position, navbar_theme, password, super_password, email', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, sitename, seo_title, seo_description, seo_keywords, bootstrap_theme, navbar_position, navbar_theme, password, email', 'safe', 'on'=>'search'),
+			array('id, sitename, seo_title, seo_description, seo_keywords, bootstrap_theme, navbar_position, navbar_theme, password, super_password, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -96,6 +93,7 @@ class Setting extends CActiveRecord
 		$criteria->compare('navbar_position',$this->navbar_position);
 		$criteria->compare('navbar_theme',$this->navbar_theme);
 		$criteria->compare('password',$this->password);
+		$criteria->compare('super_password',$this->super_password);
 		$criteria->compare('email',$this->email);
 
 		return new CActiveDataProvider($this, array(

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 09 2016 г., 16:13
+-- Время создания: Июн 14 2016 г., 10:54
 -- Версия сервера: 5.5.49-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.17
 
@@ -39,15 +39,15 @@ CREATE TABLE IF NOT EXISTS `block` (
   `animate` varchar(255) NOT NULL,
   `weight` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Дамп данных таблицы `block`
 --
 
 INSERT INTO `block` (`id`, `alias`, `name`, `content`, `publish`, `publish_menu`, `background`, `bg_color`, `bg_style`, `animate`, `weight`) VALUES
-(1, 'footer', 'footer', '', 1, 0, '', '', 'background-repeat: no-repeat; background-size: 100%;', '', 3),
-(2, 'slider', 'Слайдер', '<h2 style="text-align: center;">Это&nbsp;слайдер!</h2>\r\n\r\n<h4>Это текст перед слайдером</h4>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt="" src="/klenova/static/wysiwyg/kcfinder/upload/images/prir2.jpg" style="width: 900px;" /> <img alt="" src="/klenova/static/wysiwyg/kcfinder/upload/images/prir1.jpg" style="width: 900px;" /> <img alt="" src="/klenova/static/wysiwyg/kcfinder/upload/images/prir3.jpg" style="width: 900px;" /> <img alt="" src="/klenova/static/wysiwyg/kcfinder/upload/images/prir4.jpg" style="width: 900px;" /></p>\r\n', 1, 0, '', '', 'background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: top center;', '', 1),
+(1, 'footer', 'Футер', '', 1, 0, '', '', 'background-repeat: no-repeat; background-size: 100%;', '', 3),
+(2, 'slider_full', 'Слайдер 100%', '<h2 style="text-align: center;">Это&nbsp;слайдер!</h2>\r\n\r\n<h4>Это текст перед слайдером</h4>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt="" src="/klenova/static/wysiwyg/kcfinder/upload/images/prir2.jpg" style="width: 900px;" /> <img alt="" src="/klenova/static/wysiwyg/kcfinder/upload/images/prir1.jpg" style="width: 900px;" /> <img alt="" src="/klenova/static/wysiwyg/kcfinder/upload/images/prir3.jpg" style="width: 900px;" /> <img alt="" src="/klenova/static/wysiwyg/kcfinder/upload/images/prir4.jpg" style="width: 900px;" /></p>\r\n', 1, 0, '', '', 'background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: top center;', '', 1),
 (3, 'contact', 'Контакты', '<h1 style="text-align: center;">Связаться с нами</h1>\r\n\r\n<h3>Вы можете написать нам заполнив форму ниже.</h3>\r\n', 1, 1, '', '', 'background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: top center;', '', 2);
 
 -- --------------------------------------------------------
@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `navbar_position` varchar(255) NOT NULL,
   `navbar_theme` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `super_password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=2 ;
@@ -74,8 +75,8 @@ CREATE TABLE IF NOT EXISTS `setting` (
 -- Дамп данных таблицы `setting`
 --
 
-INSERT INTO `setting` (`id`, `sitename`, `seo_title`, `seo_description`, `seo_keywords`, `bootstrap_theme`, `navbar_position`, `navbar_theme`, `password`, `email`) VALUES
-(1, 'My Landing Page', 'Мой одностраничный сайт', 'Описание сайта', 'Ключевые слова', 'bootstrap.min', 'navbar-fixed-top', 'navbar-default', '66b65567cedbc743bda3417fb813b9ba', 'mail@mail');
+INSERT INTO `setting` (`id`, `sitename`, `seo_title`, `seo_description`, `seo_keywords`, `bootstrap_theme`, `navbar_position`, `navbar_theme`, `password`, `super_password`, `email`) VALUES
+(1, 'My Landing Page', 'Мой одностраничный сайт', 'Описание сайта', 'Ключевые слова', 'bootstrap_superhero', 'navbar-fixed-top', 'navbar-default', '66b65567cedbc743bda3417fb813b9ba', '08647808b24941ac9e8fab149bff5759', 'mail@mail');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

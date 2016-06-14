@@ -7,81 +7,81 @@
             <input type="text" id="name" class="form-control required" name="name" value="<?php echo $item->name; ?>">
             <p class="help-block">Используется для меню сайта и админки</p>
         </div>
-
-        <div class="form-group dn" id="hidden_field">
-            <label class="control-label" for="alias">Alias <span class="text-danger">*</span></label>
-            <input type="text" id="alias" class="form-control required" name="alias" value="<?php echo $item->alias; ?>">
-        </div>
+        
+        <?php if (Yii::app()->user->name == 'superadmin'): ?>
+            <div class="form-group" id="alias">
+                <label class="control-label" for="alias">Alias <span class="text-danger">*</span></label>
+                <input type="text" id="alias" class="form-control required" name="alias" value="<?php echo $item->alias; ?>">
+            </div>
+        <?php endif ?>
 
         <div class="form-group">
             <label class="control-label" for="wysiwyg">Содержимое блока</label>
             <textarea class="form-control" name="wysiwyg" id="wysiwyg" rows="27"><?php echo $item->content; ?></textarea>
-            <?php if ($item->alias == 'slider'): ?>
-                <p class="help-block">Это блок слайдера. Просто добавьте нужные изображения в это поле. Учтите, что все исходные изображения слайдера должны иметь одинаковые ширину и высоту</p>
-            <?php endif; ?>
+            <p class="text-success"><?php echo $block_message; ?></p>
+
         </div>
 
 
         <div class="row">
             <div class="col-md-6">
                 <div id="animate" class="form-group">
-                    <!-- <label class="control-label" for="animate">Анимация блока при появлении</label> -->
                     <label class="control-label" for="animate"><span id="animationSandbox" style="display: block;">Анимация блока при появлении
                 </span></label>
                     <select id="animate_slct" class="form-control" name="animate" onchange="testAnim()">
                         <option selected value="<?php echo ($item->animate)?$item->animate:''; ?>"><?php echo ($item->animate)?substr($item->animate, 4):'Без анимации'; ?></option>              
                         <optgroup label="Дрожащие">
-                          <option value="bounce">bounce</option>
-                          <option value="flash">flash</option>
-                          <option value="pulse">pulse</option>
-                          <option value="rubberBand">rubberBand</option>
-                          <option value="shake">shake</option>
-                          <option value="swing">swing</option>
-                          <option value="tada">tada</option>
-                          <option value="wobble">wobble</option>
+                          <option value="wow bounce">bounce</option>
+                          <option value="wow flash">flash</option>
+                          <option value="wow pulse">pulse</option>
+                          <option value="wow rubberBand">rubberBand</option>
+                          <option value="wow shake">shake</option>
+                          <option value="wow swing">swing</option>
+                          <option value="wow tada">tada</option>
+                          <option value="wow wobble">wobble</option>
                         </optgroup>
                         <optgroup label="Прыгающие">
-                          <option value="bounceIn">bounceIn</option>
-                          <option value="bounceInDown">bounceInDown</option>
-                          <option value="bounceInLeft">bounceInLeft</option>
-                          <option value="bounceInRight">bounceInRight</option>
-                          <option value="bounceInUp">bounceInUp</option>
+                          <option value="wow bounceIn">bounceIn</option>
+                          <option value="wow bounceInDown">bounceInDown</option>
+                          <option value="wow bounceInLeft">bounceInLeft</option>
+                          <option value="wow bounceInRight">bounceInRight</option>
+                          <option value="wow bounceInUp">bounceInUp</option>
                         </optgroup>
                         <optgroup label="Проявляющиеся">
-                          <option value="fadeIn">fadeIn</option>
-                          <option value="fadeInDown">fadeInDown</option>
-                          <option value="fadeInDownBig">fadeInDownBig</option>
-                          <option value="fadeInLeft">fadeInLeft</option>
-                          <option value="fadeInLeftBig">fadeInLeftBig</option>
-                          <option value="fadeInRight">fadeInRight</option>
-                          <option value="fadeInRightBig">fadeInRightBig</option>
-                          <option value="fadeInUp">fadeInUp</option>
-                          <option value="fadeInUpBig">fadeInUpBig</option>
+                          <option value="wow fadeIn">fadeIn</option>
+                          <option value="wow fadeInDown">fadeInDown</option>
+                          <option value="wow fadeInDownBig">fadeInDownBig</option>
+                          <option value="wow fadeInLeft">fadeInLeft</option>
+                          <option value="wow fadeInLeftBig">fadeInLeftBig</option>
+                          <option value="wow fadeInRight">fadeInRight</option>
+                          <option value="wow fadeInRightBig">fadeInRightBig</option>
+                          <option value="wow fadeInUp">fadeInUp</option>
+                          <option value="wow fadeInUpBig">fadeInUpBig</option>
                         </optgroup>
                         <optgroup label="Вращающиеся">
-                          <option value="flip">flip</option>
-                          <option value="flipInX">flipInX</option>
-                          <option value="flipInY">flipInY</option>
-                          <option value="rotateIn">rotateIn</option>
-                          <option value="rotateInDownLeft">rotateInDownLeft</option>
-                          <option value="rotateInDownRight">rotateInDownRight</option>
-                          <option value="rotateInUpLeft">rotateInUpLeft</option>
-                          <option value="rotateInUpRight">rotateInUpRight</option>
-                          <option value="rollIn">rollIn</option>
+                          <option value="wow flip">flip</option>
+                          <option value="wow flipInX">flipInX</option>
+                          <option value="wow flipInY">flipInY</option>
+                          <option value="wow rotateIn">rotateIn</option>
+                          <option value="wow rotateInDownLeft">rotateInDownLeft</option>
+                          <option value="wow rotateInDownRight">rotateInDownRight</option>
+                          <option value="wow rotateInUpLeft">rotateInUpLeft</option>
+                          <option value="wow rotateInUpRight">rotateInUpRight</option>
+                          <option value="wow rollIn">rollIn</option>
                         </optgroup>
                         <optgroup label="Выезжающий">
-                          <option value="lightSpeedIn">lightSpeedIn</option>
-                          <option value="slideInUp">slideInUp</option>
-                          <option value="slideInDown">slideInDown</option>
-                          <option value="slideInLeft">slideInLeft</option>
-                          <option value="slideInRight">slideInRight</option>
+                          <option value="wow lightSpeedIn">lightSpeedIn</option>
+                          <option value="wow slideInUp">slideInUp</option>
+                          <option value="wow slideInDown">slideInDown</option>
+                          <option value="wow slideInLeft">slideInLeft</option>
+                          <option value="wow slideInRight">slideInRight</option>
                         </optgroup>
                         <optgroup label="Приближающиеся">
-                          <option value="zoomIn">zoomIn</option>
-                          <option value="zoomInDown">zoomInDown</option>
-                          <option value="zoomInLeft">zoomInLeft</option>
-                          <option value="zoomInRight">zoomInRight</option>
-                          <option value="zoomInUp">zoomInUp</option>
+                          <option value="wow zoomIn">zoomIn</option>
+                          <option value="wow zoomInDown">zoomInDown</option>
+                          <option value="wow zoomInLeft">zoomInLeft</option>
+                          <option value="wow zoomInRight">zoomInRight</option>
+                          <option value="wow zoomInUp">zoomInUp</option>
                         </optgroup>
                         <option value="">Без анимации</option>
                     </select>

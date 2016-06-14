@@ -23,7 +23,7 @@ class BlockController extends Controller
 				$item->alias = $_POST['alias'];
 				$item->bg_style = $_POST['bg_style'];
 				$item->bg_color = $_POST['bg_color'];
-				($_POST['animate'])?$item->animate = 'wow '.$_POST['animate']:$item->animate = '';
+				($_POST['animate'])?$item->animate = $_POST['animate']:$item->animate = '';
 				$item->content = $_POST['wysiwyg'];
 				if ($_POST['publish']){
 					$item->publish = 1;
@@ -76,7 +76,7 @@ class BlockController extends Controller
 				$item->alias = $_POST['alias'];
 				$item->bg_style = $_POST['bg_style'];
 				$item->bg_color = $_POST['bg_color'];
-				($_POST['animate'])?$item->animate = 'wow '.$_POST['animate']:$item->animate = '';
+				($_POST['animate'])?$item->animate = $_POST['animate']:$item->animate = '';
 				$item->content = $_POST['wysiwyg'];
 				$item->publish = ($_POST['publish'])? 1 : 0;
 				$item->publish_menu = ($_POST['publish_menu'])? 1 : 0;
@@ -118,8 +118,8 @@ class BlockController extends Controller
 			}
 
 			$bg_style = $this->bgStyle($item->bg_style);
-			// $bg_style = Self::bgStyle($item->bg_style);
-			$this->render('edit', array('item' => $item, 'bg_title' => $bg_style['title'], 'bg_value' => $bg_style['value'], ));
+			$block_message = $this->blockMessage($item->alias);
+			$this->render('edit', array('item' => $item, 'bg_title' => $bg_style['title'], 'bg_value' => $bg_style['value'], 'block_message' => $block_message, ));
 		} else {
 			throw new CHttpException(403, 'У Вас нет прав для просмотра этой страницы.');
 		}
@@ -154,6 +154,36 @@ class BlockController extends Controller
 		}
 	}
 	
+	public function actionWeightUp($id)
+	{
+		if (Yii::app()->user->name == 'admin' || Yii::app()->user->name == 'superadmin') {
+			$item = Block::model()->findByPk($id);
+			$previous_item = Block::model()->findByAttributes(array('weight' => $item->weight-1));
+			$item->weight = $item->weight-1;
+			$item->save();
+			$previous_item->weight = $previous_item->weight+1;
+			$previous_item->save();
+			$this->redirect(array('site/admin/'));
+		} else {
+			throw new CHttpException(403, 'У Вас нет прав для просмотра этой страницы.');
+		}
+	}
+	
+	public function actionWeightDown($id)
+	{
+		if (Yii::app()->user->name == 'admin' || Yii::app()->user->name == 'superadmin') {
+			$item = Block::model()->findByPk($id);
+			$second_item = Block::model()->findByAttributes(array('weight' => $item->weight+1));
+			$item->weight = $item->weight+1;
+			$item->save();
+			$second_item->weight = $second_item->weight-1;
+			$second_item->save();
+			$this->redirect(array('site/admin/'));
+		} else {
+			throw new CHttpException(403, 'У Вас нет прав для просмотра этой страницы.');
+		}
+	}
+	
 
 	public static function bgStyle($style){
 		switch ($style) {
@@ -180,6 +210,21 @@ class BlockController extends Controller
 			}
 			$result = array('title' => $bg_title, 'value' => $bg_value);
 		return $result;
+	}
+
+	public static function blockMessage($alias){
+		switch ($alias) {
+		    case 'slider':
+		        $block_message = 'Это блок слайдера. Просто добавьте нужные изображения в это поле. Учтите, что все исходные изображения слайдера должны иметь одинаковые ширину и высоту';
+		        break;
+		    case 'slider_full':
+		        $block_message = 'Это блок слайдера в полную ширину. Просто добавьте нужные изображения в это поле. Учтите, что все исходные изображения слайдера должны иметь одинаковые ширину и высоту. Не добавляйте ничего кроме изображений.';
+		        break;
+		    default:
+		        $block_message = '';
+		        break;
+			}
+		return $block_message;
 	}
 
 	public static function UploadFile($post, $files, $width, $height, $folder, $filename){	

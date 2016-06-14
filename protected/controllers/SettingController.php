@@ -43,12 +43,23 @@ class SettingController extends Controller
 		if (Yii::app()->user->name == 'admin' || Yii::app()->user->name == 'superadmin') {
 			$item = Setting::model()->findByPk(1);
 			if ($_POST) {
-				if ($item->password != md5(sha1(md5($_POST['old_pass'])))) {
-					Yii::app()->user->setFlash('error_pass', 'Старый пароль указан не верно!');
-					$this->redirect(array('setting/changepassword'));
-				} else {
-					$item->password = md5(sha1(md5($_POST['new_pass'])));
-					$item->save();
+				if (Yii::app()->user->name == 'admin'){
+					if ($item->password != md5(sha1(md5($_POST['old_pass'])))) {
+						Yii::app()->user->setFlash('error_pass', 'Старый пароль указан не верно!');
+						$this->redirect(array('setting/changepassword'));
+					} else {
+						$item->password = md5(sha1(md5($_POST['new_pass'])));
+						$item->save();
+					}
+				}
+				if (Yii::app()->user->name == 'superadmin'){
+					if ($item->super_password != md5(sha1(md5($_POST['old_pass'])))) {
+						Yii::app()->user->setFlash('error_pass', 'Старый пароль указан не верно!');
+						$this->redirect(array('setting/changepassword'));
+					} else {
+						$item->super_password = md5(sha1(md5($_POST['new_pass'])));
+						$item->save();
+					}
 				}
 				if ($item->save()) {
 					Yii::app()->user->setFlash('changepass', 'Пароль изменен!');
@@ -60,6 +71,29 @@ class SettingController extends Controller
 			throw new CHttpException(403, 'У Вас нет прав для просмотра этой страницы.');
 		}
 	}
+
+	// public function actionChangePassword()
+	// {
+	// 	if (Yii::app()->user->name == 'admin' || Yii::app()->user->name == 'superadmin') {
+	// 		$item = Setting::model()->findByPk(1);
+	// 		if ($_POST) {
+	// 			if ($item->password != md5(sha1(md5($_POST['old_pass'])))) {
+	// 				Yii::app()->user->setFlash('error_pass', 'Старый пароль указан не верно!');
+	// 				$this->redirect(array('setting/changepassword'));
+	// 			} else {
+	// 				$item->password = md5(sha1(md5($_POST['new_pass'])));
+	// 				$item->save();
+	// 			}
+	// 			if ($item->save()) {
+	// 				Yii::app()->user->setFlash('changepass', 'Пароль изменен!');
+	// 				$this->redirect(array('setting/index'));
+	// 			}
+	// 		}
+	// 		$this->render('changepassword',array('item'=>$item));
+	// 	} else {
+	// 		throw new CHttpException(403, 'У Вас нет прав для просмотра этой страницы.');
+	// 	}
+	// }
 
 
 

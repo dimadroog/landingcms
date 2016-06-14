@@ -23,11 +23,11 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Быстрый переход <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?php echo Yii::app()->createUrl('/site/admin') ?>">Админка</a></li>
-								<li><a href="<?php echo Yii::app()->createUrl('/site/seo') ?>">Seo данные</a></li>
+								<li><a href="<?php echo Yii::app()->createUrl('/block/create') ?>">Создать новый блок</a></li>
 			                    <?php foreach (Block::getAll() as $block): ?>
 			                        <li><a href="<?php echo Yii::app()->createUrl('/block/view/'.$block->id) ?>">Блок: <?php echo $block->name ?></a></li>
 			                    <?php endforeach;?>
-								<li><a href="<?php echo Yii::app()->createUrl('/block/create') ?>">Создать блок</a></li>
+								<li><a href="<?php echo Yii::app()->createUrl('/site/seo') ?>">Seo данные</a></li>
 								<li><a href="<?php echo Yii::app()->createUrl('/setting/index') ?>">Настройки сайта</a></li>
 							</ul>
 						</li>

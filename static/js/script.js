@@ -32,7 +32,6 @@ jQuery(document).ready(function() {
     /* if .navbar-fixed-top body padding from nav height*/
     if (jQuery('nav').is('.navbar-fixed-top')) {
         jQuery('body').css('padding-top', jQuery('.navbar').css('min-height'));
-
     };
 
     /*colorpicker*/

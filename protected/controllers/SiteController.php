@@ -43,7 +43,7 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
-		$this->layout='//layouts/front';
+		$this->layout='//layouts/service';
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)
@@ -69,19 +69,37 @@ class SiteController extends Controller
 					"MIME-Version: 1.0\r\n".
 					"Content-Type: text/plain; charset=UTF-8";
 			mail(Setting::getData('email'), $subject, $body, $headers);
-			// $this->csv($_POST['contact_name'], $_POST['contact_email'], $_POST['contact_phone']);
+			$this->setCsv($_POST['contact_name'], $_POST['contact_email'], $_POST['contact_phone']);
 			echo $_POST['contact_name'];
 		}
 	}
 
 
-		public static function csv($name, $email, $phone) {
-			$today = date("d.m.Y, H:i:s");
-			$file = 'images/contacts.csv';
-			$tofile = "$name;$email;$phone;'$today'\n";
-			$bom = "\xEF\xBB\xBF";
-			file_put_contents($file, $bom . $tofile . file_get_contents($file));
+	public function actionBook() {
+		if($_POST){
+			$name = $_POST['book_name'];
+			$email = $_POST['book_email'];
+			$phone = '';
+			$this->setCsv($name, $email, $phone);
 		}
+	}
+
+
+	public static function setCsv($name, $email, $phone) {
+		$today = date("d.m.Y, H:i:s");
+		$file = 'images/contacts.csv';
+		$tofile = "$name;$email;$phone;$today\n";
+		$bom = "\xEF\xBB\xBF";
+		file_put_contents($file, $bom . $tofile . file_get_contents($file));
+	}
+
+	public function actionGetCsv() {
+		$file = 'images/contacts.csv';
+		header("Content-type: application/x-download");
+		header("Content-Disposition: attachment; filename=contacts.csv");
+		readfile($file);
+	}
+
 	/**
 	 * Displays the login page
 	 */

@@ -55,19 +55,19 @@ text-transform: capitalize;
                 <div class="row">
                     <div class="col-md-6 wow slideInLeft">
                         <div class="form-group">
-                            <input type="text" class="form-control required" placeholder="Ваше Имя *" id="contact_name" name="contact_name">
+                            <input type="text" class="form-control contact_required" placeholder="Ваше Имя *" id="contact_name" name="contact_name">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Ваш Телефон" id="contact_phone" name="contact_phone">
                             
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control required" placeholder="Ваш Email *" id="contact_email" name="contact_email">
+                            <input type="text" class="form-control contact_required" placeholder="Ваш Email *" id="contact_email" name="contact_email">
                         </div>
                     </div>
                     <div class="col-md-6 wow slideInRight">
                         <div class="form-group">
-                            <textarea class="form-control required" placeholder="Текст сообщения *" id="contact_message" name="contact_message"></textarea>
+                            <textarea class="form-control contact_required" placeholder="Текст сообщения *" id="contact_message" name="contact_message"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary btn-form-front" value="Отправить сообщение" style="display: block; width: 100%;">
@@ -96,7 +96,7 @@ text-transform: capitalize;
             }, 1500); 
             state = 'fail';     
         };
-        jQuery('.required').each(function(){
+        jQuery('.contact_required').each(function(){
             var field = jQuery(this);
             if (field.val() == '') {
                 jQuery('#contact_error').html('Пожалуйста, заполните все необходимые поля');

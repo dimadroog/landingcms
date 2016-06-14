@@ -19,7 +19,7 @@ class UserIdentity extends CUserIdentity
 	{
 		$users=array(
 			// username => password
-			'superadmin'=>md5(sha1(md5('proforce25'))),
+			'superadmin'=>Setting::getData('super_password'),
 			'admin'=>Setting::getData('password'),
 		);
 		if(!isset($users[$this->username]))

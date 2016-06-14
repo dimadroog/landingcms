@@ -38,7 +38,6 @@
 </nav>
 
 <?php echo $content; ?>
-
     <!-- Scrolling Nav JavaScript -->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/static/startbootstrap-scrolling-nav/js/jquery.easing.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/static/startbootstrap-scrolling-nav/js/scrolling-nav.js"></script>
