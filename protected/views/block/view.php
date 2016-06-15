@@ -17,7 +17,18 @@
                     <?php echo $item->name; ?>
                 </div>
             </div>
-            <hr>    
+            <hr>
+            <?php if (Yii::app()->user->name == 'superadmin'): ?>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span class="text-muted">Alias:</span>
+                    </div>
+                    <div class="col-sm-9">
+                        <?php echo $item->alias; ?>
+                    </div>
+                </div>
+                <hr>    
+            <?php endif ?>
             <div class="row">
                 <div class="col-sm-3">
                     <span class="text-muted">Содержимое блока:</span>
