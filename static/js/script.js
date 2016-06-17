@@ -34,6 +34,16 @@ jQuery(document).ready(function() {
         jQuery('body').css('padding-top', jQuery('.navbar').css('min-height'));
     };
 
+    /* if .navbar-fixed-top body padding from nav height*/
+    // if (jQuery('nav').is('.navbar-fixed-top')) {
+    //     var nav_hght = parseInt(jQuery('.navbar').css('min-height'));
+    //     var nav_pdt = parseInt(jQuery('.navbar').css('padding-top'));
+    //     var nav_pdb = parseInt(jQuery('.navbar').css('padding-bottom'));
+    //     var sum = nav_hght+nav_pdt+nav_pdb+'px';
+    //     jQuery('body').css({'padding-top':sum});
+    //     c(sum);
+    // };
+
     /*colorpicker*/
     jQuery(function() {
         jQuery('#colorpicker').colorpicker({

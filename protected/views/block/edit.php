@@ -8,12 +8,10 @@
             <p class="help-block">Используется для меню сайта и админки</p>
         </div>
         
-        <?php if (Yii::app()->user->name == 'superadmin'): ?>
-            <div class="form-group" id="alias">
-                <label class="control-label" for="alias">Alias <span class="text-danger">*</span></label>
-                <input type="text" id="alias" class="form-control required" name="alias" value="<?php echo $item->alias; ?>">
-            </div>
-        <?php endif ?>
+        <div class="form-group <?php echo (Yii::app()->user->name == 'superadmin')?'':'dn'; ?>" id="alias">
+            <label class="control-label" for="alias">Alias <span class="text-danger">*</span></label>
+            <input type="text" id="alias" class="form-control required" name="alias" value="<?php echo $item->alias; ?>">
+        </div>
 
         <div class="form-group">
             <label class="control-label" for="wysiwyg">Содержимое блока</label>

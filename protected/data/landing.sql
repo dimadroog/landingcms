@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 14 2016 г., 10:54
+-- Время создания: Июн 17 2016 г., 13:36
 -- Версия сервера: 5.5.49-0ubuntu0.14.04.1
 -- Версия PHP: 5.5.9-1ubuntu4.17
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
 --
 
 INSERT INTO `setting` (`id`, `sitename`, `seo_title`, `seo_description`, `seo_keywords`, `bootstrap_theme`, `navbar_position`, `navbar_theme`, `password`, `super_password`, `email`) VALUES
-(1, 'My Landing Page', 'Мой одностраничный сайт', 'Описание сайта', 'Ключевые слова', 'bootstrap_superhero', 'navbar-fixed-top', 'navbar-default', '66b65567cedbc743bda3417fb813b9ba', '08647808b24941ac9e8fab149bff5759', 'mail@mail');
+(1, 'My Landing Page', 'Мой одностраничный сайт', 'Описание сайта', 'Ключевые слова', 'bootstrap_readable', 'navbar-fixed-top', 'navbar-inverse', '66b65567cedbc743bda3417fb813b9ba', '1acd9c7e06f217cd759345b99d372d31', 'mail@mail');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
